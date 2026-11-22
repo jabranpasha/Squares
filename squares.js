@@ -9,8 +9,13 @@ function addSquare(){
     let square = document.createElement("div");
     square.className = "square";
     square.style.backgroundColor = getRandomColor();
-    square.style.top = parseInt(Math.random() *(300-50  )) + "px";
-    square.style.left = parseInt(Math.random()*(700-50)) + "px";
+    //Make a variable for a random size between 45-55 and then set the square size to it
+    let randomSize = parseInt(Math.random()*11) + 45;
+    square.style.width = randomSize + "px";
+    square.style.height = randomSize + "px";
+    //Using the randomSize for the positioning to make sure the square isn't going past the border with its new size.
+    square.style.top = parseInt(Math.random() *(300-randomSize)) + "px";
+    square.style.left = parseInt(Math.random()*(700-randomSize)) + "px";
     //Giving each square an onclick for the fourth rubric criteria
     square.onclick=changeSquare;
     squareArea.append(square);
